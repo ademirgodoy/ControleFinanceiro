@@ -10,12 +10,15 @@ import br.edu.ifsp.controlefinanceiro.R
 import br.edu.ifsp.controlefinanceiro.data.Conta
 import br.edu.ifsp.controlefinanceiro.data.ContaController
 import kotlinx.android.synthetic.main.activity_cadastroconta.*
+import java.io.IOException
 
 class CadastroContaActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cadastroconta)
+
+        contaController = ContaController(this)
 
         contaSalvarBT.setOnClickListener {
             cadastraConta()
@@ -39,6 +42,7 @@ class CadastroContaActivity: AppCompatActivity() {
                val conta = Conta(descConta,saldoConta.toFloat())
                contaController.adicionaConta(conta)
                Toast.makeText(this,"Conta adicionada com sucesso!",Toast.LENGTH_LONG).show()
+
            }
        }
 
