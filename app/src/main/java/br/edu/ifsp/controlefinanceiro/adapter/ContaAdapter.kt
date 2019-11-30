@@ -26,7 +26,7 @@ class ContaAdapter (private val contas: List<Conta>,
         val conta = contas[position]
         holder?.let {
            it.descricao.text = conta.descricao
-           it.saldo.text = conta.saldo.toString()
+           it.saldo.text = "R$ "+conta.saldo.toString()
         }
     }
 
@@ -35,32 +35,5 @@ class ContaAdapter (private val contas: List<Conta>,
         val descricao = itemView.visualizaContaTV
         val saldo = itemView.saldoContaTV
     }
-
-    //RecyclerView.Adapter<ContaAdapter.ViewHolder>() {
-
-//    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-//        val view = LayoutInflater.from(context).inflate(R.layout.activity_listaconta,parent,false)
-//        return ViewHolder(view)
-//    }
-//
-//    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-//        val conta = contas[position]
-//        holder.let {
-//            it.descricao.text = conta.descricao
-//            it.saldo.text = conta.saldo.toString()
-//
-//        }
-//    }
-//
-//    override fun getItemCount(): Int {
-//        return contas.size
-//    }
-
-
-
-//    class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-//       val descricao = itemView.visualizaContaTV
-//       val saldo = itemView.saldoContaTV
-//    }
 
 }
