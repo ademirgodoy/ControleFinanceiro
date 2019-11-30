@@ -19,7 +19,7 @@ class ListaContaActivity: AppCompatActivity() {
 
         contaController = ContaController(this)
 
-        val recyclerView = RecyclerView(this)
+        val recyclerView = listaContaRecyclerView //RecyclerView
         recyclerView.adapter = ContaAdapter(contas(),this)
 
         val layout = LinearLayoutManager(this)

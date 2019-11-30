@@ -42,7 +42,7 @@ class CadastroContaActivity: AppCompatActivity() {
                val conta = Conta(descConta,saldoConta.toFloat())
                contaController.adicionaConta(conta)
                Toast.makeText(this,"Conta adicionada com sucesso!",Toast.LENGTH_LONG).show()
-
+               finish()
            }
        }
 
