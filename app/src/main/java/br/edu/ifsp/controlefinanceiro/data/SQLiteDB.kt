@@ -92,10 +92,10 @@ class SQLiteDB(@Nullable context: Context): SQLiteOpenHelper(context, DATABASE_N
                                                   + KEY_PT_DESCRICAO + " TEXT, "
                                                   + KEY_PT_VALOR + ");")
 
-        val INSERT_UNICA = ("INSERT INTO "+ TABLE_PER_TRANSACAO+ "("+ KEY_PT_DESCRICAO+", "+ KEY_PT_VALOR+" VALUES ('UNICA',0);")
-        val INSERT_DIARIA = ("INSERT INTO "+ TABLE_PER_TRANSACAO+ "("+ KEY_PT_DESCRICAO+", "+ KEY_PT_VALOR+" VALUES ('DIARIA',1);")
-        val INSERT_SEMANAL = ("INSERT INTO "+ TABLE_PER_TRANSACAO+ "("+ KEY_PT_DESCRICAO+", "+ KEY_PT_VALOR+" VALUES ('SEMANAL',7);")
-        val INSERT_MENSAL = ("INSERT INTO "+ TABLE_PER_TRANSACAO+ "("+ KEY_PT_DESCRICAO+", "+ KEY_PT_VALOR+" VALUES ('MENSAL',30);")
+        val INSERT_UNICA = ("INSERT INTO "+ TABLE_PER_TRANSACAO+ "("+ KEY_PT_DESCRICAO+", "+ KEY_PT_VALOR+") VALUES ('UNICA',0);")
+        val INSERT_DIARIA = ("INSERT INTO "+ TABLE_PER_TRANSACAO+ "("+ KEY_PT_DESCRICAO+", "+ KEY_PT_VALOR+") VALUES ('DIARIA',1);")
+        val INSERT_SEMANAL = ("INSERT INTO "+ TABLE_PER_TRANSACAO+ "("+ KEY_PT_DESCRICAO+", "+ KEY_PT_VALOR+") VALUES ('SEMANAL',7);")
+        val INSERT_MENSAL = ("INSERT INTO "+ TABLE_PER_TRANSACAO+ "("+ KEY_PT_DESCRICAO+", "+ KEY_PT_VALOR+") VALUES ('MENSAL',30);")
 
         //tabela de transaçoes e atributos
         val TABLE_TRANSACAO = "transacao"
@@ -122,13 +122,6 @@ class SQLiteDB(@Nullable context: Context): SQLiteOpenHelper(context, DATABASE_N
                                               + "FOREIGN KEY("+KEY_T_ID_TP_TRANSACAO+") REFERENCES "+ TABLE_TP_TRANSACAO+" ("+ KEY_TPT_ID +"),"
                                               + "FOREIGN KEY("+KEY_T_ID_PERIODICIDADE+") REFERENCES "+ TABLE_PER_TRANSACAO+" ("+ KEY_PT_ID+")"
                                               +");")
-
-
-
-
-
-
-
 
 
     }
