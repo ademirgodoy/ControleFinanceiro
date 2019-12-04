@@ -12,6 +12,7 @@ class ContaController (val activity: Activity){
 
     fun adicionaConta(conta: Conta){
         contaDAO.incluirConta(conta)
+
     }
 
     fun listagemConta(): List<Conta>{

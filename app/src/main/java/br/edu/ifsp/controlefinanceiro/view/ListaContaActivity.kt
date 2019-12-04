@@ -20,15 +20,25 @@ class ListaContaActivity: AppCompatActivity() {
         contaController = ContaController(this)
 
         val recyclerView = listaContaRecyclerView //RecyclerView
-        recyclerView.adapter = ContaAdapter(contas(),this)
+
+        val adapter: ContaAdapter
+        adapter = ContaAdapter(contas(),this)
+
+        recyclerView.adapter = adapter
 
         val layout = LinearLayoutManager(this)
         recyclerView.layoutManager = layout
 
+        //adapter.notifyDataSetChanged()
+
         cadContaBT.setOnClickListener {
             startActivity(Intent(this,CadastroContaActivity::class.java))
+
         }
+
+
     }
+
 
     lateinit var contaController: ContaController
     private fun contas():List<Conta>{

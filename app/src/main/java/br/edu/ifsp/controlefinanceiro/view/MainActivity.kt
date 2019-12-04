@@ -31,6 +31,10 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
             startActivity(Intent(this,ListaContaActivity::class.java))
         }
 
+        transacaoBT.setOnClickListener{
+            startActivity(Intent(this,ListaTransacaoActivity::class.java))
+        }
+
     }
 
     override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {

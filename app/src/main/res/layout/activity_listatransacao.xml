@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
-
+    android:layout_height="match_parent">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -16,18 +15,18 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/visualizaContaTV"
+                android:id="@+id/visualizaTransacaoTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Conta"
+                android:hint="Transação"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/saldoContaTV"
+                android:id="@+id/valorTransacaoTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Saldo"
+                android:hint="Valor"
                 android:inputType="numberDecimal"
                 android:textSize="14sp" />
 
