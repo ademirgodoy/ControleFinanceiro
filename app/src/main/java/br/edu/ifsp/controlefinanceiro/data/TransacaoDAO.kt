@@ -44,7 +44,7 @@ class TransacaoDAO(context: Context) {
 
     }*/
 
-    /*fun listaTranscacoes(): List<Conta> {
+    fun listaTranscacoes(): List<Transacao> {
         database = db!!.getReadableDatabase()
 
         val transacoes = mutableListOf(transacao)
@@ -57,34 +57,24 @@ class TransacaoDAO(context: Context) {
 
         while (cursor.moveToNext()) {
             val t = Transacao()
-            t. = cursor.getLong(0)
-            c.descricao = cursor.getString(1)
-            c.saldo = cursor.getFloat(2)
+            t.idTransacao = cursor.getLong(0)
+            t.descTransacao = cursor.getString(1)
+            t.idConta = cursor.getLong(2)
+            t.idNtransacao = cursor.getLong(3)
+            t.idTpTransacao = cursor.getLong(4)
+            t.vlTransacao = cursor.getFloat(5)
+            t.idPeriodicidade = cursor.getLong(6)
+            t.dtTransacao = cursor.getString(7)
+            t.idConta = cursor.getLong(8)
 
-            contas.add(c)
+            transacoes.add(t)
         }
 
         cursor.close()
         database!!.close()
 
-        return contas
-    }*/
+        return transacoes
+    }
 
-    /*fun SaldoTotalContas(): Float{
-        database = db!!.getReadableDatabase()
-
-        val cursor: Cursor
-
-        cursor = database!!.rawQuery("SELECT SUM(saldo) AS Total FROM " + SQLiteDB.TABLE_CONTA + ";", null)
-
-        var saldoTotal = 0
-
-        if (cursor.moveToFirst()) {
-
-            saldoTotal = cursor.getInt(cursor.getColumnIndex("Total"))
-
-        }
-        return saldoTotal.toFloat()
-    }*/
 
 }
