@@ -29,10 +29,10 @@ class ListaTransacaoActivity: AppCompatActivity() {
 
         //adapter.notifyDataSetChanged()
 
-        //cadTransacaoBT.setOnClickListener {
-        //    startActivity(Intent(this,CadastroContaActivity::class.java))
+        cadTransacaoBT.setOnClickListener {
+            startActivity(Intent(this,CadastroTransacaoActivity::class.java))
 
-        //}
+        }
 
     }
 
