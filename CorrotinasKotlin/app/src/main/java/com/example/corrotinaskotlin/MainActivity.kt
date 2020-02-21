@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlin.random.Random
@@ -33,17 +34,25 @@ class MainActivity : AppCompatActivity() {
         texto2Tv.setText("")
 
         GlobalScope.launch {
-            val texto1 = texto1(random.nextLong(3000))
+            val texto1Deferred = async {
+                texto1(random.nextLong(3000))
+            }
+            val texto1 = texto1Deferred.await()
             runOnUiThread{
                 texto1Tv.setText(texto1)
             }
+        }
 
-            val texto2 = texto2(random.nextLong(3000))
-            runOnUiThread{
+        GlobalScope.launch {
+            val texto2Deferred = async {
+                texto2(random.nextLong(3000))
+            }
+            val texto2 = texto2Deferred.await()
+            runOnUiThread {
                 texto2Tv.setText(texto2)
             }
-
         }
+
 
     }
 }
