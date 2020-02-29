@@ -11,20 +11,20 @@ import kotlinx.coroutines.launch
 
 class ToDoLisPresenter(private val view: ToDoLIstViewInterface) {
     /* Também conhece o modelo, mas por injeção de dependência, isso não é um problema */
-    private val model: TarefaDao = Room.databaseBuilder(
+    /*private val model: TarefaDao = Room.databaseBuilder(
         (view as Context),
         ToDoListDatabase::class.java,
         ToDoListDatabase.Constantes.DB_NAME
-    ).build().getTarefaDao()
+    ).build().getTarefaDao()*/
 
-    fun buscarTarefas() {
+    /*fun buscarTarefas() {
         GlobalScope.launch {
             val listaTarefas = model.recuperarTarefas().toMutableList()
             view.setTarefas(listaTarefas)
         }
-    }
+    }*/
 
-    fun apagarTarefa(tarefa: Tarefa){
+  /*  fun apagarTarefa(tarefa: Tarefa){
         GlobalScope.launch {
             model.removerTarefa(tarefa)
 
@@ -43,14 +43,14 @@ class ToDoLisPresenter(private val view: ToDoLIstViewInterface) {
             model.atualizarTarefa(tarefa)
             view.setRetorno(tarefa)
         }
-    }
+    }*/
 
-    fun salvarTarefa(tarefa: Tarefa) {
+    /*fun salvarTarefa(tarefa: Tarefa) {
         GlobalScope.launch {
             val id = model.inserirTarefa(tarefa)
             val tarefaRetorno = model.recuperaTarefa(id.toInt())
 
             view.setRetorno(tarefaRetorno)
         }
-    }
+    }*/
 }

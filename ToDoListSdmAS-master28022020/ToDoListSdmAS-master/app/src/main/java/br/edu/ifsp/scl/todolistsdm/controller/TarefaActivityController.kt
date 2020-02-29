@@ -10,26 +10,26 @@ import kotlinx.coroutines.launch
 
 class TarefaActivityController(private val view: TarefaActivity) {
 
-    private val model: TarefaDao = Room.databaseBuilder(
+  /*  private val model: TarefaDao = Room.databaseBuilder(
         view,
         ToDoListDatabase::class.java,
         ToDoListDatabase.Constantes.DB_NAME
     ).build().getTarefaDao()
-
-    fun salvarTarefa(tarefa: Tarefa) {
+*/
+   /* fun salvarTarefa(tarefa: Tarefa) {
         GlobalScope.launch {
             val id = model.inserirTarefa(tarefa)
             val tarefaRetorno = model.recuperaTarefa(id.toInt())
 
             view.setRetorno(tarefaRetorno)
         }
-    }
+    }*/
 
-    fun alterarTarefa(tarefa: Tarefa) {
+    /*fun alterarTarefa(tarefa: Tarefa) {
         GlobalScope.launch {
             model.atualizarTarefa(tarefa)
 
             view.setRetorno(tarefa)
         }
-    }
+    }*/
 }

@@ -6,17 +6,19 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import br.edu.ifsp.scl.todolistsdm.R
 import br.edu.ifsp.scl.todolistsdm.controller.TarefaActivityController
 import br.edu.ifsp.scl.todolistsdm.controller.ToDoLisPresenter
 import br.edu.ifsp.scl.todolistsdm.model.entity.Tarefa
+import br.edu.ifsp.scl.todolistsdm.viewmodel.ToDoListViewModel
 import kotlinx.android.synthetic.main.activity_tarefa.*
 import kotlinx.android.synthetic.main.toolbar.*
 import splitties.toast.toast
 
-class TarefaActivity : AppCompatActivity(), ToDoLIstViewInterface {
+class TarefaActivity : AppCompatActivity(){
     private var tarefa: Tarefa? = null
-    private lateinit var presenter: ToDoLisPresenter
+    private lateinit var viewModel: ToDoListViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +30,7 @@ class TarefaActivity : AppCompatActivity(), ToDoLIstViewInterface {
         /*
         Instanciando controller
          */
-        presenter = ToDoLisPresenter(this) //TarefaActivityController(this)
+        viewModel = ToDoListViewModel(this) //TarefaActivityController(this)
 
         /* Edição ou Nova? */
         tarefa = intent.getParcelableExtra(MainActivity.Constantes.TAREFA_EXTRA)
@@ -55,18 +57,18 @@ class TarefaActivity : AppCompatActivity(), ToDoLIstViewInterface {
                  */
                 if (tarefa == null) {
                     tarefa = Tarefa(nome = nomeTarefaEt.text.toString())
-                    presenter.salvarTarefa(tarefa!!)
+                    viewModel.salvarTarefa(tarefa!!)
                 }
                 else {
                     tarefa?.nome = nomeTarefaEt.text.toString()
-                    presenter.alterarTarefa(tarefa!!)
+                    viewModel.alterarTarefa(tarefa!!)
                 }
             }
         }
         return true
     }
 
-    override fun setRetorno(tarefa: Tarefa) {
+    fun setRetorno(tarefa: Tarefa) {
         /*
         Retorna tarefa para MainActivity
         */
@@ -81,8 +83,14 @@ class TarefaActivity : AppCompatActivity(), ToDoLIstViewInterface {
         finish()
     }
 
-    override fun setTarefas(listaTarefas: MutableList<Tarefa>) {
-       //nao faz sentido nesta activity
+
+    private fun salvarTarefa(tarefa: Tarefa){
+        viewModel.salvarTarefa(tarefa).observe(this, Observer<Long>{
+            id -> viewModel.buscarTarefa(id.toInt()).observe( this,
+            Observer<Tarefa> {tarefa -> setRetorno(tarefa)  }
+        )
+
+        })
     }
 
 }
